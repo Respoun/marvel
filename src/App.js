@@ -1,7 +1,9 @@
 import React from "react";
 import Logo from "./components/logo";
 import Characters from './components/characters/character'
+import Details from './components/characters/details'
 import Login from './components/login/login'
+import Privateroute from './components/routing/privateroute'
 
 import {
   BrowserRouter as Router,
@@ -26,10 +28,13 @@ export default function App() {
           </ul>
         </nav>
         <Switch>
-          <Route path="/Characters">
-            <Characters />
-          </Route>
-          <Route path="/">
+        <Privateroute path="/characters">
+            <Characters/>
+        </Privateroute>
+        <Privateroute path="/details/:id">
+            <Details/>
+         </Privateroute>
+         <Route path="/">
             <Login />
           </Route>
         </Switch>

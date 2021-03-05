@@ -4,6 +4,7 @@ import CharactersRow from './charactersrow'
 import privatekey from '../secret/secret'
 import Pagination from '../pagination/pagination'
 import md5 from 'md5'
+import { useHistory, Link } from 'react-router-dom'
 
 const Characters = () => {
   const [characters, setCharacters] = useState([])
@@ -40,10 +41,9 @@ const Characters = () => {
     <div>
       <p>Marvel characters</p>
       {characters.map(character => (
-        <CharactersRow
-          key={character.name}
-          name={character.name}
-        ></CharactersRow>
+        <div>
+          <Link to={"/details/" + character.id}>{character.id} ----- {character.name}</Link>
+        </div>
       ))}
       <Pagination
       total={total}
